@@ -35,13 +35,21 @@ class _PokeDetailsViewState extends State<PokeDetailsView> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: EdgeInsets.all(20),
-              child: IconButton(
-                  iconSize: 18,
+              padding: const EdgeInsets.all(20),
+              child: Container(
+                height: 40,
+                width: 40,
+                decoration: const BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.all(Radius.circular(5))),
+                child: IconButton(
+                  iconSize: 20,
                   onPressed: () {
                     Get.back();
                   },
-                  icon: const Icon(Icons.arrow_back_ios)),
+                  icon: const Icon(Icons.arrow_back),
+                ),
+              ),
             ),
             const SizedBox(
               height: 20,
@@ -49,15 +57,6 @@ class _PokeDetailsViewState extends State<PokeDetailsView> {
             Expanded(
                 child: Stack(
               children: [
-                // Positioned(
-                //   right: 0,
-                //   top: 0,
-                //   child: Image.asset(
-                //     'assets/images/charizard.png',
-                //     height: 20,
-                //     fit: BoxFit.fitHeight,
-                //   ),
-                // ),
                 Positioned(
                   bottom: 0,
                   left: 0,
