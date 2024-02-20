@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pokebook/widgets/poke_power.dart';
 
 import '../poke_model.dart';
 import '../utils/app_colors.dart';
@@ -23,34 +24,33 @@ class PokeInformation extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            const Text(
-              'About',
-              style: TextStyle(
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-                fontSize: 20,
+            Column(children: [
+              Text(
+                pokemon.name,
+                style: const TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 40,
+                ),
               ),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const Text(
-                  "Name",
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20,
+              const SizedBox(height: 5),
+              const Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  PokePowerWidget(
+                    icon: Icons.whatshot,
+                    iconColor: Colors.red,
+                    powerName: 'Fire',
                   ),
-                ),
-                Text(
-                  pokemon.name,
-                  style: const TextStyle(
-                    color: Colors.black,
-                    fontSize: 16,
+                  PokePowerWidget(
+                    icon: Icons.airplanemode_active,
+                    iconColor: Colors.blue,
+                    powerName: 'Flying',
                   ),
-                ),
-              ],
-            ),
+                ],
+              ),
+            ]),
+            const SizedBox(height: 5),
             _buildInformationRow("HP", pokemon.hp),
             _buildInformationRow("Attack", pokemon.attack),
             _buildInformationRow("Defense", pokemon.defense),
